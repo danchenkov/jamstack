@@ -1,0 +1,5 @@
+baseURL = "https://zealous-poitras-3f9296.netlify.app/"
+languageCode = "en-us"
+title = "Jamstack/HTML Boilerplate on Hugo"
+theme = "ananke"
+disableKinds = ["taxonomy","taxonomyTerm","sitemap"]
