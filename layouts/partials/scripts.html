@@ -1,0 +1,12 @@
+<!-- <script src="/js/modernizr.min.js"></script> -->
+{{/*
+{{ $modernizr := resources.Get "vendor/modernizr.min.js" }}
+{{ $securemodernizr := $modernizr | resources.Minify | resources.Fingerprint "sha512" }}
+<script src="{{ $securemodernizr.Permalink }}"></script>
+*/}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" crossorigin="anonymous"></script>
+
+{{ $localjs := resources.Get "main.js" }}
+{{ $localjs := slice $localjs | resources.Concat "js/application.js" | resources.Minify }}
+{{ $securelocaljs := $localjs | resources.Fingerprint "sha512" }}
+<script src="{{ $securelocaljs.Permalink }}" integrity="{{ $securelocaljs.Data.Integrity }}" crossorigin="anonymous"></script>

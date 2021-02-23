@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en-us" itemscope itemtype="https://schema.org/WebPage">
+<head>
+	<title>{{ .Title | plainify }} - {{ .Site.BaseURL }}</title>
+	<link rel="canonical" href="{{ .Permalink }}">
+	{{ with .OutputFormats.Get "RSS" -}}
+	{{ printf "<link href=%q rel=\"alternate\" type=%q title=%q />" .Permalink .MediaType $.Site.Title | safeHTML }}
+	{{- end }}
+</head>
+<body>
+	<h1>Temporary Headline</h1>
+	{{ block "main" . }}{{ end }}
+	{{ partial "scripts.html" . }}
+</body>
+</html>

@@ -32,15 +32,10 @@ storage/*
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-public/packs
-public/packs-test
+public/*
 node_modules
-yarn-error.log
-yarn-debug.log*
-.yarn-integrity
 
 # Other
 .DS_Store
 *.code-workspace
 *.sublime-*
-.yarn
