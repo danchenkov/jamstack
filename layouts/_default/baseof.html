@@ -2,13 +2,41 @@
 <html lang="en-us" itemscope itemtype="https://schema.org/WebPage">
 <head>
 	<title>{{ .Title | plainify }} - {{ .Site.BaseURL }}</title>
+	{{ partial "meta.html" . }}
 	<link rel="canonical" href="{{ .Permalink }}">
+	<link rel="apple-touch-icon" href="icon.png">
+	{{ partial "styles.html" . }}
 	{{ with .OutputFormats.Get "RSS" -}}
 	{{ printf "<link href=%q rel=\"alternate\" type=%q title=%q />" .Permalink .MediaType $.Site.Title | safeHTML }}
 	{{- end }}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f8f8;
+            max-width: 960px;
+            margin: 2rem auto;
+        }
+        section#text {
+            background-color: #fff;
+            padding: 1.5rem 5%;
+            font-family: barlow, sans-serif;
+        }
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1.15rem;
+            font-weight: 300;
+        }
+        figure img {
+            width: 100%;
+        }
+        b, strong {
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
-	<h1>Temporary Headline</h1>
 	{{ block "main" . }}{{ end }}
 	{{ partial "scripts.html" . }}
 </body>
